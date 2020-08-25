@@ -26,7 +26,7 @@ void KsiazkaAdresowa::zmianaHaslaZalogowanegoUzytkownika()
 
 bool KsiazkaAdresowa::czyUzytkownikJestZalogowany()
 {
-    uzytkownikMenedzer.czyUzytkownikJestZalogowany();
+    return uzytkownikMenedzer.czyUzytkownikJestZalogowany();
 }
 
 int KsiazkaAdresowa::pobierzIdZalogowanegoUzytkownika()

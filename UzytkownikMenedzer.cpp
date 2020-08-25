@@ -2,7 +2,7 @@
 
 void UzytkownikMenedzer::rejestracjaUzytkownika()
 {
-       Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
+    Uzytkownik uzytkownik = podajDaneNowegoUzytkownika();
 
     uzytkownicy.push_back(uzytkownik);
     plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
