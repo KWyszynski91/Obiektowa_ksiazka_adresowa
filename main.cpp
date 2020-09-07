@@ -6,6 +6,11 @@ using namespace std;
 int main()
 {
     KsiazkaAdresowa ksiazkaadresowa("Uzytkownicy.txt", "Adresaci.txt");
+
+    //PlikZAdresatami plikZAdresatami("Adresaci.txt");
+    //plikZAdresatami.dopisz("tekst do dopisania");
+    //PlikZUzytkownikami plikZUzytkownikami("Uzytkownicy.txt");
+
     char wybor;
 
     while (true)
@@ -34,8 +39,16 @@ int main()
             {
             case '1':
                 ksiazkaadresowa.dodajAdresata(); break;
+            case '2':
+                ksiazkaadresowa.wyszukajAdresatowPoImieniu(); break;
+            case '3':
+                ksiazkaadresowa.wyszukajAdresatowPoNazwisku(); break;
             case '4':
                 ksiazkaadresowa.wyswietlWszystkichAdresatow(); break;
+            case '5':
+                ksiazkaadresowa.usunAdresata(); break;
+            case '6':
+                ksiazkaadresowa.edytujAdresata(); break;
             case '7':
                 ksiazkaadresowa.zmianaHaslaZalogowanegoUzytkownika(); break;
             case '9':
