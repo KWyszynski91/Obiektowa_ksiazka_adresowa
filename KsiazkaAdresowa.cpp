@@ -54,6 +54,58 @@ void KsiazkaAdresowa::dodajAdresata()
     }
 }
 
+void KsiazkaAdresowa::usunAdresata()
+{
+    if(uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer->usunAdresata();
+    }
+    else
+    {
+        cout<<"Aby usun\245\206 adresata nale\276y si\251 zalogowa\206"<<endl;
+        system("pause");
+    }
+}
+
+void KsiazkaAdresowa::edytujAdresata()
+{
+   if(uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer->edytujAdresata();
+    }
+    else
+    {
+        cout<<"Aby edytowa\245\206 adresata nale\276y si\251 zalogowa\206"<<endl;
+        system("pause");
+    }
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoImieniu()
+{
+   if(uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer->wyszukajAdresatowPoImieniu();
+    }
+    else
+    {
+        cout<<"Aby wy\230wietli\206 kontakty nale\276y si\251 zalogowa\206"<<endl;
+        system("pause");
+    }
+}
+
+void KsiazkaAdresowa::wyszukajAdresatowPoNazwisku()
+{
+   if(uzytkownikMenedzer.czyUzytkownikJestZalogowany())
+    {
+        adresatMenedzer->wyszukajAdresatowPoNazwisku();
+    }
+    else
+    {
+        cout<<"Aby wy\230wietli\206 kontakty nale\276y si\251 zalogowa\206"<<endl;
+        system("pause");
+    }
+}
+
 void KsiazkaAdresowa::wyswietlWszystkichAdresatow()
 {
        if(uzytkownikMenedzer.czyUzytkownikJestZalogowany())
@@ -90,11 +142,11 @@ char KsiazkaAdresowa::wybierzOpcjeZMenuUzytkownika()
     cout<<"|=========KSI\244\275KA ADRESOWA=========|" << endl;
     cout<<"|___________panel_g\210\242wny___________|" << endl;
     cout<<"| 1. Dodaj adresata                |"<<endl;
-    //cout<<"| 2. Wyszukaj po imieniu           |"<<endl;
-    //cout<<"| 3. Wyszukaj po nazwisku          |"<<endl;
+    cout<<"| 2. Wyszukaj po imieniu           |"<<endl;
+    cout<<"| 3. Wyszukaj po nazwisku          |"<<endl;
     cout<<"| 4. Wy\230wietl wszystkich adresat\242w |"<<endl;
-    //cout<<"| 5. Usu\344 adresata                 |"<<endl;
-    //cout<<"| 6. Edytuj adresata               |"<<endl;
+    cout<<"| 5. Usu\344 adresata                 |"<<endl;
+    cout<<"| 6. Edytuj adresata               |"<<endl;
     cout<<"+==================================+"<<endl;
     cout<<"| 7. Zmie\344 has\210o                   |"<<endl;
     cout<<"| 9. Wyloguj si\251                   |"<<endl;
