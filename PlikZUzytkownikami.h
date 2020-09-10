@@ -17,8 +17,9 @@ class PlikZUzytkownikami: public PlikTekstowy
     const string nazwaPliku;
     string zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik);
     Uzytkownik pobierzDaneUzytkownika(string daneJednegoUzytkownikaOddzielonePionowymiKreskami);
+    //PlikTekstowy plikTekstowy;
 public:
-    PlikZUzytkownikami(string nazwaPliku):  PlikTekstowy(nazwaPliku)  {}; //LISTA INICJALIZACYJNA
+    PlikZUzytkownikami(string NAZWA_PLIKU_Z_UZYTKOWNIKAMI):  PlikTekstowy(NAZWA_PLIKU_Z_UZYTKOWNIKAMI)  {}; //LISTA INICJALIZACYJNA
     void dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik);
     vector <Uzytkownik> wczytajUzytkownikowZPliku();
     void zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik> uzytkownicy);

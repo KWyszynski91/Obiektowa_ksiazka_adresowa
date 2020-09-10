@@ -6,7 +6,7 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
 {
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
-    plikTekstowy.open(nazwaPliku.c_str(), ios::app);
+    plikTekstowy.open(pobierzNazwePliku().c_str(), ios::app);
 
     if (plikTekstowy.good() == true)
     {
@@ -23,7 +23,7 @@ void PlikZUzytkownikami::dopiszUzytkownikaDoPliku(Uzytkownik uzytkownik)
         plikTekstowy.close();
     }
     else
-        cout << "Nie uda\210o si\251 otworzy\206 pliku " << nazwaPliku << " i zapisa\206 w nim danych." << endl;
+        cout << "Nie uda\210o si\251 otworzy\206 pliku " << pobierzNazwePliku() << " i zapisa\206 w nim danych." << endl;
 }
 
 string PlikZUzytkownikami::zamienDaneUzytkownikaNaLinieZDanymiOddzielonaPionowymiKreskami(Uzytkownik uzytkownik)
@@ -42,7 +42,7 @@ vector <Uzytkownik> PlikZUzytkownikami::wczytajUzytkownikowZPliku()
     string daneJednegoUzytkownikaOddzielonePionowymiKreskami = "";
     fstream plikTekstowy;
 
-    plikTekstowy.open(nazwaPliku.c_str(), ios::in);
+    plikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
 
     if (plikTekstowy.good() == true)
     {
