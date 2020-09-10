@@ -191,11 +191,9 @@ void PlikZAdresatami::zmienNazwePliku(string staraNazwa, string nowaNazwa)
 
 void PlikZAdresatami::usunWybranaLinieWPliku(int numerUsuwanejLinii)
 {
-    cout<<"numer usuwanej linii: "<<numerUsuwanejLinii<<endl;
-    system("pause");
     fstream odczytywanyPlikTekstowy, tymczasowyPlikTekstowy;
     string wczytanaLinia = "";
-    int numerWczytanejLinii = 1;
+    int numerWczytanejLinii=1;
 
     odczytywanyPlikTekstowy.open(pobierzNazwePliku().c_str(), ios::in);
     tymczasowyPlikTekstowy.open(NAZWA_TYMCZASOWEGO_PLIKU_Z_ADRESATAMI.c_str(), ios::out | ios::app);

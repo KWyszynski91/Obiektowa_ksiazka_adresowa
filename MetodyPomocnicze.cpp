@@ -40,7 +40,6 @@ char MetodyPomocnicze::wczytajZnak()
 {
     string wejscie = "";
     char znak  = {0};
-
     while (true)
     {
         cin.clear();
