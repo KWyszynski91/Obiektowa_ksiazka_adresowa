@@ -62,6 +62,7 @@ int MetodyPomocnicze::wczytajLiczbeCalkowita()
     int liczba = 0;
     while (true)
     {
+        cin.ignore();
         getline(cin, wejscie);
         stringstream myStream(wejscie);
         if (myStream >> liczba)
