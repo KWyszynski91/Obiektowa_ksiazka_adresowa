@@ -145,6 +145,38 @@ int PlikZAdresatami::pobierzIdOstatniegoAdresata()
     return idOstatniegoAdresata;
 }
 
+int PlikZAdresatami::pobierzZPlikuIdOstatniegoAdresata()
+{
+    int idOstatniegoAdresata = 0;
+    string daneJednegoAdresataOddzielonePionowymiKreskami = "";
+    string daneOstaniegoAdresataWPliku = "";
+    fstream plikTekstowy;
+    plikTekstowy.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::in);
+
+    if (plikTekstowy.good() == true)
+    {
+        while (getline(plikTekstowy, daneJednegoAdresataOddzielonePionowymiKreskami)) {}
+            daneOstaniegoAdresataWPliku = daneJednegoAdresataOddzielonePionowymiKreskami;
+            plikTekstowy.close();
+    }
+    else
+        cout << "Nie uda\210o si\251 otworzy\206 pliku i wczyta\206 danych." << endl;
+
+    if (daneOstaniegoAdresataWPliku != "")
+    {
+        idOstatniegoAdresata = pobierzIdAdresataZDanychOddzielonychPionowymiKreskami(daneOstaniegoAdresataWPliku);
+    }
+    return idOstatniegoAdresata;
+}
+
+int PlikZAdresatami::podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(int idUsuwanegoAdresata)
+{
+    if (idUsuwanegoAdresata == idOstatniegoAdresata)
+        return pobierzZPlikuIdOstatniegoAdresata();
+    else
+        return idOstatniegoAdresata;
+}
+
 int PlikZAdresatami::zwrocNumerLiniiSzukanegoAdresata(int idUsuwanegoAdresata)
 {
     bool czyIstniejeAdresat = false;
@@ -228,6 +260,7 @@ int PlikZAdresatami::usunWybranegoAdresataZPliku(int idUsuwanegoAdresata)
     int numerLiniiUsuwanegoAdresata;
     numerLiniiUsuwanegoAdresata=zwrocNumerLiniiSzukanegoAdresata(idUsuwanegoAdresata);
     usunWybranaLinieWPliku(numerLiniiUsuwanegoAdresata);
+    idOstatniegoAdresata=podajIdOstatniegoAdresataPoUsunieciuWybranegoAdresata(idUsuwanegoAdresata);
 }
 
 void PlikZAdresatami::edytujWybranaLinieWPliku(int numerEdytowanejLinii, string liniaZDanymiAdresataOddzielonePionowymiKreskami)
@@ -278,20 +311,4 @@ void PlikZAdresatami::zaktualizujDaneWybranegoAdresata(Adresat adresat, int idEd
     edytujWybranaLinieWPliku(numerLiniiEdytowanegoAdresata, liniaZDanymiAdresata);
 
     cout << endl << "Dane zosta\210y zaktualizowane." << endl << endl;
-}
-
-void PlikZAdresatami::dopisz(string tekst)
-{
-    fstream plikTekstowy;
-    plikTekstowy.open(pobierzNazwePliku().c_str(), ios::app);
-
-    if (plikTekstowy.good() == true)
-    {
-        if (PlikTekstowy::czyPlikJestPusty())
-            plikTekstowy << "To jest poczatek pliku" << endl;
-
-        plikTekstowy << tekst << endl;
-    }
-
-    plikTekstowy.close();
 }
