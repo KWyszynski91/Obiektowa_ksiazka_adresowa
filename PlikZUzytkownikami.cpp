@@ -94,8 +94,7 @@ void PlikZUzytkownikami::zapiszWszystkichUzytkownikowDoPliku(vector <Uzytkownik>
     fstream plikTekstowy;
     string liniaZDanymiUzytkownika = "";
     vector <Uzytkownik>::iterator itrKoniec = --uzytkownicy.end();
-
-    plikTekstowy.open(nazwaPliku.c_str(), ios::out);
+    plikTekstowy.open(PlikTekstowy::pobierzNazwePliku().c_str(), ios::out);
 
     if (plikTekstowy.good() == true)
     {

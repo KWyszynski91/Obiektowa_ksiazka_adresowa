@@ -111,7 +111,6 @@ int AdresatMenedzer::usunAdresata()
             if (znak == 't')
             {
                 numerLiniiUsuwanegoAdresata = plikZAdresatami.usunWybranegoAdresataZPliku(idUsuwanegoAdresata);
-
                 adresaci.erase(itr);
                 cout << endl << endl << "Szukany adresat zosta\210 USUNI\251TY" << endl << endl;
                 system("pause");
